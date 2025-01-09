@@ -1,0 +1,49 @@
+<mvc:View xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="FileUploaderBasic.controller.FileUpload" class="viewPadding">
+	<Panel headerText="Uploading a Excel or CSV File" expandable="true" expandAnimation="false">
+		<l:VerticalLayout>
+			<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server"
+				uploadComplete="handleUploadComplete" change="handleValueChange" typeMissmatch="handleTypeMissmatch" style="Emphasized" fileType="xlsx,CSV"
+				placeholder="Choose a file for Upload..."/>
+			<Button text="Upload File" press="handleUploadPress" icon="sap-icon://upload"/>
+			
+		</l:VerticalLayout>
+		<Table id="idTable" items="{/}">
+				<headerToolbar>
+			<Toolbar>
+				<Title text="Excel Data" level="H2"/>
+				<ToolbarSpacer></ToolbarSpacer>
+				<Button text="Download" icon="sap-icon://download" press="onDataExport"/>
+			</Toolbar>
+		</headerToolbar>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{Sales Document}"/>
+						<Text text="{Date}"/>
+						<Text text="{Type}"/>
+						<Text text="{Sales Org}"/>
+						<Text text="{Category}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+			<columns>
+				<Column>
+					<Text text="Sales Document"/>
+				</Column>
+				<Column>
+					<Text text="Date"/>
+				</Column>
+				<Column>
+					<Text text="Type"/>
+				</Column>
+				<Column>
+					<Text text="Sales Org"/>
+				</Column>
+				<Column>
+					<Text text="Category"/>
+				</Column>
+			</columns>
+		</Table>
+	</Panel>
+</mvc:View>
